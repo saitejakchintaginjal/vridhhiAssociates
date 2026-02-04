@@ -10,7 +10,6 @@ const Navbar = () => {
       }}
     >
       <div className="container">
-        {/* Brand */}
         <a
           className="navbar-brand d-flex align-items-center gap-2"
           href="#home"
@@ -27,8 +26,6 @@ const Navbar = () => {
 
           <div className="fw-bold">Vridhhi Associates</div>
         </a>
-
-        {/* Hamburger */}
         <button
           className="navbar-toggler border-0"
           data-bs-toggle="collapse"
