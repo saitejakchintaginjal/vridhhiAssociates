@@ -1,0 +1,64 @@
+/* PROJECTS */
+
+.project-card {
+  overflow: hidden;
+}
+
+.project-image {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.project-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.1)
+  );
+}
+
+.project-content {
+  padding: 20px;
+}
+
+.project-content h5 {
+  margin: 6px 0;
+  font-weight: 600;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
+}
+
+.project-image {
+  transition: transform 0.4s ease;
+}
+
+/* Badges */
+
+.project-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.badge-completed {
+  background: #22c55e;
+  color: white;
+}
+
+.badge-ongoing {
+  background: #2563eb;
+  color: white;
+}

@@ -1,0 +1,48 @@
+
+.navbar .nav-link {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.navbar .nav-link:hover {
+  color: var(--primary);
+}
+
+/* Fix bootstrap toggler icon */
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* ============================= */
+/* PREVENT NAVBAR SHIFT */
+/* ============================= */
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+/* Lock brand alignment */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+/* Prevent collapse animation affecting header height */
+.navbar-collapse {
+  position: absolute;
+  top: 80px; /* same as navbar height */
+  right: 0;
+  left: 0;
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    position: static;
+  }
+}

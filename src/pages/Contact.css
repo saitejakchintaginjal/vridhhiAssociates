@@ -1,0 +1,161 @@
+.contact-section {
+  background: #f6f8fb;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contact-header h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.contact-header p {
+  color: #6b7280;
+}
+
+/* GRID */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* CARDS */
+
+.contact-form-card,
+.contact-info-card {
+  background: white;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.contact-form-card h3,
+.contact-info-card h3 {
+  margin-bottom: 10px;
+}
+
+/* FORM */
+
+.contact-form-card form {
+  margin-top: 25px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.contact-form-card input,
+.contact-form-card textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #dbe2ea;
+  font-size: 15px;
+}
+
+.contact-form-card textarea {
+  margin-top: 16px;
+}
+
+.contact-form-card button {
+  margin-top: 20px;
+  background: #1f4f7a;
+  color: white;
+  padding: 14px 26px;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* INFO */
+
+.info-item {
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
+  align-items: flex-start;
+}
+
+.info-item svg {
+  padding-top: 4px;
+  color: #1f4f7a;
+}
+
+.info-item strong {
+  display: block;
+}
+
+.info-item span {
+  display: block;
+  font-weight: 600;
+}
+
+.info-item small {
+  color: #6b7280;
+}
+
+/* ACTION BUTTONS */
+
+.contact-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-call {
+  flex: 1;
+  background: #1f4f7a;
+  color: white;
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn-whatsapp {
+  flex: 1;
+  background: #22c55e;
+  color: white;
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* MAP */
+
+.map-wrapper {
+  margin-top: 30px;
+  width: 100%;
+  height: 260px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,71 +1,75 @@
+import { useEffect } from "react";
+import "./Navbar.css";
 import logo from "../assets/logo/Vridhhi1.jpg";
 
 const Navbar = () => {
+  useEffect(() => {
+    const links = document.querySelectorAll(".nav-link");
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        const menu = document.getElementById("navbarMenu");
+        if (menu?.classList.contains("show")) {
+          menu.classList.remove("show");
+        }
+      });
+    });
+  }, []);
+
   return (
     <nav
       className="navbar navbar-expand-lg fixed-top"
       style={{
-        backgroundColor: "#ffffff",
-        boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
+        background: "#ffffff",
+        minHeight: "80px",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
+        zIndex: 5000,
       }}
     >
       <div className="container">
+        {/* Logo */}
         <a
-          className="navbar-brand d-flex align-items-center gap-2"
           href="#home"
+          className="navbar-brand d-flex align-items-center gap-2"
         >
           <img
             src={logo}
-            alt="Vridhhi Associates Logo"
-            style={{
-              width: 80,
-              height: 80,
-              objectFit: "contain",
-            }}
+            alt="Vridhhi Associates"
+            style={{ width: 60, height: 60, objectFit: "contain" }}
           />
-
-          <div className="fw-bold">Vridhhi Associates</div>
+          <strong>Vridhhi Associates</strong>
         </a>
+
+        {/* Hamburger */}
         <button
-          className="navbar-toggler border-0"
+          className="navbar-toggler"
+          type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navMenu"
-          aria-controls="navMenu"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          data-bs-target="#navbarMenu"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
         {/* Menu */}
-        <div className="collapse navbar-collapse" id="navMenu">
-          <ul className="navbar-nav ms-auto">
+        <div className="collapse navbar-collapse" id="navbarMenu">
+          <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-3">
             {[
-              "Home",
-              "About",
-              "Services",
-              "Projects",
-              "Testimonials",
-              "Contact",
+              "home",
+              "about",
+              "services",
+              "projects",
+              "testimonials",
+              "contact",
             ].map((item) => (
               <li className="nav-item" key={item}>
-                <a
-                  className="nav-link"
-                  href={`#${item.toLowerCase()}`}
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navMenu"
-                >
-                  {item}
+                <a className="nav-link" href={`#${item}`}>
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
                 </a>
               </li>
             ))}
 
-            {/* Call */}
-            <li className="nav-item mt-2 mt-lg-0">
-              <a
-                href="tel:918792076681"
-                className="btn btn-outline-primary w-100"
-              >
+            <li className="nav-item ms-lg-3">
+              <a href="tel:918792076681" className="btn btn-outline-primary">
                 Call Now
               </a>
             </li>
