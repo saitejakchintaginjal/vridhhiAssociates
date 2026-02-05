@@ -5,17 +5,17 @@ const AboutPage = () => {
     {
       name: "Saiteja",
       role: "Managing Director",
-      image: "public/Team/member1.jpeg",
+      image: "/Team/member1.jpeg",
     },
     {
       name: "Teja",
       role: "Technical Director",
-      image: "public/Team/member2.jpeg",
+      image: "/Team/member2.jpeg",
     },
     {
       name: "Name Here",
       role: "Operations Head",
-      image: "/leaders/oh.jpg",
+      image: "/Team/member3.jpeg",
     },
   ];
 
