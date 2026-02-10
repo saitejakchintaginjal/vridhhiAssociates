@@ -2,36 +2,25 @@ import "./Projects.css";
 
 const projects = [
   {
-    title: "Sunset Apartments",
-    type: "Residential",
-    location: "Vidya Nagar, Hubli",
-    status: "Completed",
-    image:
-      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
     title: "Tech Park Office Complex",
-    type: "Commercial",
-    location: "KSSIDC Industrial Area, Hubli",
+    type: "Residential",
+    location: "Sulla Road, Hubli",
     status: "Ongoing",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+    image: "public/projects/project2.jpeg",
   },
   {
     title: "Heritage Villa Renovation",
-    type: "Renovation",
-    location: "Old Hubli",
+    type: "Residential",
+    location: "Sangoli Rayanna Nagar, Hubli",
     status: "Completed",
-    image:
-      "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1200&q=80",
+    image: "public/projects/project3.jpeg",
   },
   {
     title: "Green Heights Residency",
     type: "Residential",
-    location: "Gokul Road, Hubli",
-    status: "Ongoing",
-    image:
-      "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=1200&q=80",
+    location: "Kuberapuram, Hubli",
+    status: "Completed",
+    image: "public/projects/project4.jpeg",
   },
 ];
 
@@ -62,7 +51,7 @@ const Projects = () => {
 
                 <div className="project-content">
                   <small className="text-muted">{p.type}</small>
-                  <h5>{p.title}</h5>
+                  {/* <h5>{p.title}</h5> */}
                   <p className="text-muted">{p.location}</p>
                 </div>
               </div>

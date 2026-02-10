@@ -14,8 +14,8 @@ const Home = () => {
             </span>
 
             <h1 className="fw-bold display-4 mt-3">
-              Building Strong Foundations <br />
-              For Tomorrow
+              We Build. <br />
+              We Protect.
             </h1>
 
             <p className="lead mt-3">
@@ -27,7 +27,7 @@ const Home = () => {
             {/* Buttons */}
             <div className="d-flex flex-wrap gap-3 mt-4">
               <a href="#contact" className="btn btn-primary px-4">
-                Request Site Visit
+                Free Consultation
               </a>
 
               <a href="#projects" className="btn btn-outline-light px-4">
@@ -36,7 +36,7 @@ const Home = () => {
             </div>
 
             {/* Feature Pills */}
-            <div className="hero-features mt-4">
+            <div className="hero-features">
               <span className="feature-pill">Quality Construction</span>
 
               <span className="feature-pill">Trusted Team</span>

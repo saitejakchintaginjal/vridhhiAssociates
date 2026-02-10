@@ -58,7 +58,7 @@ const Navbar = () => {
               "about",
               "services",
               "projects",
-              "testimonials",
+              // "testimonials",
               "contact",
             ].map((item) => (
               <li className="nav-item" key={item}>

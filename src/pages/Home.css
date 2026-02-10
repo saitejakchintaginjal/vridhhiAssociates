@@ -1,11 +1,6 @@
-
-/* ============================= */
-/* HOME HERO */
-/* ============================= */
-
 .home-hero {
   min-height: calc(100vh - var(--navbar-height));
-  background-image: url("https://images.unsplash.com/photo-1504307651254-35680f356dfd");
+  background-image: url("/projects/HomeBackground.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -17,8 +12,8 @@
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(12, 40, 70, 0.88),
-    rgba(12, 40, 70, 0.55)
+    rgba(37, 50, 65, 0.88),
+    rgba(8, 25, 43, 0.55)
   );
 }
 
@@ -28,6 +23,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  padding-top: 128px;
 }
 
 .feature-pill {

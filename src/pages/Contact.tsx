@@ -59,151 +59,216 @@ const SendIcon = () => (
 
 /* ---------------- COMPONENT ---------------- */
 
+type ModalStatus = "idle" | "sending" | "success" | "error";
+
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
+  const [modalStatus, setModalStatus] = useState<ModalStatus>("idle");
+
+  // const sendEmail = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   setShowModal(true);
+
+  //   emailjs
+  //     .sendForm(
+  //       "service_6v08qg8", //replace
+  //       "template_f1008yn", // replace
+  //       formRef.current!,
+  //       "zQl56Ji0l4W0xoGgZ", // replace
+  //     )
+  //     .then(
+  //       () => {
+  //         // alert("Message sent successfully!");
+  //         // setTimeout(() => setShowModal(false), 3000);
+  //         formRef.current?.reset();
+  //         setLoading(false);
+  //       },
+  //       () => {
+  //         alert("Failed to send message. Try again.");
+  //         setLoading(false);
+  //       },
+  //     );
+  // };
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
+
     setLoading(true);
+    setModalStatus("sending");
 
     emailjs
       .sendForm(
-        "service_bl5gh9a", // replace
-        "template_hq7lxri", // replace
+        "service_6v08qg8",
+        "template_f1008yn",
         formRef.current!,
-        "pxLSG_vBLoUvqhInQ", // replace
+        "zQl56Ji0l4W0xoGgZ",
       )
       .then(
         () => {
-          alert("Message sent successfully!");
           formRef.current?.reset();
           setLoading(false);
+          setModalStatus("success");
         },
         () => {
-          alert("Failed to send message. Try again.");
           setLoading(false);
+          setModalStatus("error");
         },
       );
   };
 
   return (
-    <section id="contact" className="contact-section">
-      <div className="container">
-        <div className="contact-header">
-          <h2>Get In Touch</h2>
-          <p>
-            Reach out to us for residential, commercial construction and
-            waterproofing solutions.
-          </p>
-        </div>
-
-        <div className="contact-grid">
-          {/* ---------------- FORM ---------------- */}
-          <div className="contact-form-card">
-            <h3>Send Us a Message</h3>
+    <>
+      <section id="contact" className="contact-section">
+        <div className="container">
+          <div className="contact-header">
+            <h2>Get In Touch</h2>
             <p>
-              Fill out the form below and we'll get back to you as soon as
-              possible.
+              Reach out to us for residential, commercial construction and
+              waterproofing solutions.
             </p>
-
-            <form ref={formRef} onSubmit={sendEmail}>
-              <div className="form-row">
-                <input name="name" placeholder="Your Name *" required />
-                <input name="phone" placeholder="Phone Number *" required />
-              </div>
-
-              <input name="email" placeholder="Email Address *" required  className="emailField"/>
-
-              <textarea
-                name="message"
-                rows={5}
-                placeholder="Your Message *"
-                required
-              />
-
-              <button type="submit" disabled={loading}>
-                {loading ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    Send Message <SendIcon />
-                  </>
-                )}
-              </button>
-            </form>
           </div>
 
-          {/* ---------------- INFO ---------------- */}
-          <div className="contact-info-card">
-            <h3>Contact Information</h3>
-            <p>Reach out to us through any of the following channels.</p>
+          <div className="contact-grid">
+            {/* ---------------- FORM ---------------- */}
+            <div className="contact-form-card">
+              <h3>Send Us a Message</h3>
+              <p>
+                Fill out the form below and we'll get back to you as soon as
+                possible.
+              </p>
 
-            <div className="info-item">
-              <PhoneIcon />
-              <div>
-                <strong>Phone</strong>
-                <span>+91 8792076681</span>
-                <small>Contact Person: Pradeep V Dhavande</small>
+              <form ref={formRef} onSubmit={sendEmail}>
+                <div className="form-row">
+                  <input name="name" placeholder="Your Name *" required />
+                  <input name="phone" placeholder="Phone Number *" required />
+                </div>
+
+                <input
+                  name="email"
+                  placeholder="Email Address *"
+                  required
+                  className="emailField"
+                />
+
+                <textarea
+                  name="message"
+                  rows={5}
+                  placeholder="Your Message *"
+                  required
+                />
+
+                <button type="submit" disabled={loading}>
+                  {loading ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      Send Message <SendIcon />
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
+
+            {/* ---------------- INFO ---------------- */}
+            <div className="contact-info-card">
+              <h3>Contact Information</h3>
+              <p>Reach out to us through any of the following channels.</p>
+
+              <div className="info-item">
+                <PhoneIcon />
+                <div>
+                  <strong>Phone</strong>
+                  <span>+91 8792076681</span>
+                  <small>Contact Person: Pradeep V Dhavande</small>
+                </div>
               </div>
-            </div>
 
-            <div className="info-item">
-              <MailIcon />
-              <div>
-                <strong>Email</strong>
-                <span>Vridhhiassociates@gmail.com</span>
-                <small>We'll respond within 24 hours</small>
+              <div className="info-item">
+                <MailIcon />
+                <div>
+                  <strong>Email</strong>
+                  <span>vridhhiassociate@gmail.com</span>
+                  <small>We'll respond within 24 hours</small>
+                </div>
               </div>
-            </div>
 
-            <div className="info-item">
-              <MapIcon />
-              <div>
-                <strong>Address</strong>
-                <span>Vridhhi Associates</span>
-                <small>
-                  B-14 Marvel Artiza, Opposite Kim's, Vidya Nagar, Hubli –
-                  580021
-                </small>
+              <div className="info-item">
+                <MapIcon />
+                <div>
+                  <strong>Address</strong>
+                  <span>Vridhhi Associates</span>
+                  <small>
+                    B-14 Marvel Artiza, Opposite Kim's, Vidya Nagar, Hubli –
+                    580021
+                  </small>
+                </div>
               </div>
-            </div>
 
-            <div className="info-item">
-              <ClockIcon />
-              <div>
-                <strong>Business Hours</strong>
-                <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
-                <small>Sunday: Closed</small>
+              <div className="info-item">
+                <ClockIcon />
+                <div>
+                  <strong>Business Hours</strong>
+                  <span>Mon - Sat: 10:00 AM - 8:00 PM</span>
+                  <small>Sunday: Closed</small>
+                </div>
               </div>
-            </div>
 
-            <div className="contact-actions">
-              <a href="tel:918792076681" className="btn-call">
-                Call Now
-              </a>
+              <div className="contact-actions">
+                <a href="tel:918792076681" className="btn-call">
+                  Call Now
+                </a>
 
-              <a
-                href="https://wa.me/918792076681"
-                className="btn-whatsapp"
-                target="_blank"
-                rel="noreferrer"
-              >
-                WhatsApp
-              </a>
-            </div>
+                <a
+                  href="https://wa.me/918792076681"
+                  className="btn-whatsapp"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  WhatsApp
+                </a>
+              </div>
 
-            {/* ---------------- MAP ---------------- */}
-            {/* <div className="map-wrapper">
+              {/* ---------------- MAP ---------------- */}
+              {/* <div className="map-wrapper">
               <iframe
                 title="Vridhhi Associates Location"
                 src="https://www.google.com/maps?q=Vidya%20Nagar%20Hubli&output=embed"
                 loading="lazy"
               />
             </div> */}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      {modalStatus !== "idle" && (
+        <div className="popup">
+          {modalStatus === "sending" && (
+            <>
+              <h3>Sending message…</h3>
+              <p>Please wait</p>
+            </>
+          )}
+
+          {modalStatus === "success" && (
+            <>
+              <h3>Message Sent ✅</h3>
+              <p>Thank you for contacting us. We’ll get back to you shortly.</p>
+              <button onClick={() => setModalStatus("idle")}>Close</button>
+            </>
+          )}
+
+          {modalStatus === "error" && (
+            <>
+              <h3>Failed ❌</h3>
+              <p>Something went wrong. Please try again.</p>
+              <button onClick={() => setModalStatus("idle")}>Close</button>
+            </>
+          )}
+        </div>
+      )}
+    </>
   );
 }
