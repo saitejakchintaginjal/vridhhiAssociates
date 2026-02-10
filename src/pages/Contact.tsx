@@ -64,7 +64,6 @@ type ModalStatus = "idle" | "sending" | "success" | "error";
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
-  // const [showModal, setShowModal] = useState(false);
   const [modalStatus, setModalStatus] = useState<ModalStatus>("idle");
 
   // const sendEmail = (e: React.FormEvent) => {

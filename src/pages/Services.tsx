@@ -88,7 +88,7 @@ const ServicesPage = () => {
   return (
     <>
       {/* HERO */}
-      <section className="services-hero">
+      <section className="services-hero" id="services">
         <div className="container hero-content">
           <h1>Our Services</h1>
           <p>
