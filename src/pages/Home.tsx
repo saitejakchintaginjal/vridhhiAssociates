@@ -2,48 +2,48 @@ import "./Home.css";
 
 const Home = () => {
   return (
-    <section id="home" className="home-hero d-flex align-items-center">
-      {/* Overlay */}
+    <section id="home" className="home-hero">
+      {/* HERO IMAGE — LCP ELEMENT */}
+      <img
+        src="/projects/HomeBackground.webp"
+        alt="Residential and commercial construction by Vridhhi Associates"
+        className="hero-bg"
+        fetchPriority="high"
+        decoding="async"
+      />
+
       <div className="home-overlay"></div>
 
-      <div className="container position-relative text-white">
-        <div className="row">
-          <div className="col-lg-7">
-            <span className="badge bg-warning text-dark px-3 py-2 mb-3">
-              Trusted Construction Partner
-            </span>
+      <div className="container hero-content">
+        <span className="badge bg-warning text-dark px-3 py-2 mb-3">
+          Trusted Construction Partner
+        </span>
 
-            <h1 className="fw-bold display-4 mt-3">
-              We Build. <br />
-              We Protect.
-            </h1>
+        <h1>
+          We Build.
+          <br />
+          We Protect.
+        </h1>
 
-            <p className="lead mt-3">
-              Vridhhi Associates delivers residential, commercial and
-              waterproofing projects with focus on quality, safety and on-time
-              execution.
-            </p>
+        <p>
+          Vridhhi Associates delivers residential, commercial and waterproofing
+          projects with focus on quality, safety and on-time execution.
+        </p>
 
-            {/* Buttons */}
-            <div className="d-flex flex-wrap gap-3 mt-4">
-              <a href="#contact" className="btn btn-primary px-4">
-                Free Consultation
-              </a>
+        <div className="hero-buttons">
+          <a href="#contact" className="btn btn-primary">
+            Free Consultation
+          </a>
 
-              <a href="#projects" className="btn btn-outline-light px-4">
-                View Projects
-              </a>
-            </div>
+          <a href="#projects" className="btn btn-outline-light">
+            View Projects
+          </a>
+        </div>
 
-            {/* Feature Pills */}
-            <div className="hero-features">
-              <span className="feature-pill">Quality Construction</span>
-
-              <span className="feature-pill">Trusted Team</span>
-
-              <span className="feature-pill">On-Time Delivery</span>
-            </div>
-          </div>
+        <div className="hero-features">
+          <span>Quality Construction</span>
+          <span>Trusted Team</span>
+          <span>On-Time Delivery</span>
         </div>
       </div>
     </section>

@@ -1,13 +1,36 @@
+import { lazy } from "react";
 import "./ServicesPage.css";
-import {
-  FaHome,
-  FaBuilding,
-  FaWater,
-  FaTools,
-  FaCouch,
-  FaProjectDiagram,
-  FaCheckCircle,
-} from "react-icons/fa";
+// import {
+//   FaHome,
+//   FaBuilding,
+//   FaWater,
+//   FaTools,
+//   FaCouch,
+//   FaProjectDiagram,
+//   FaCheckCircle,
+// } from "react-icons/fa";
+
+const FaHome = lazy(() =>
+  import("react-icons/fa").then((m) => ({ default: m.FaHome })),
+);
+const FaBuilding = lazy(() =>
+  import("react-icons/fa").then((m) => ({ default: m.FaBuilding })),
+);
+const FaWater = lazy(() =>
+  import("react-icons/fa").then((m) => ({ default: m.FaWater })),
+);
+const FaTools = lazy(() =>
+  import("react-icons/fa").then((m) => ({ default: m.FaTools })),
+);
+const FaCouch = lazy(() =>
+  import("react-icons/fa").then((m) => ({ default: m.FaCouch })),
+);
+const FaProjectDiagram = lazy(() =>
+  import("react-icons/fa").then((m) => ({ default: m.FaProjectDiagram })),
+);
+const FaCheckCircle = lazy(() =>
+  import("react-icons/fa").then((m) => ({ default: m.FaCheckCircle })),
+);
 
 const services = [
   {
@@ -101,15 +124,15 @@ const ServicesPage = () => {
       <section className="services-image-section">
         <div className="container image-grid">
           <div className="image-slider slider-one">
-            <img src="/services/service-1.jpeg" alt="" />
-            <img src="/services/service-2.jpeg" alt="" />
-            <img src="/services/service-3.jpeg" alt="" />
+            <img src="/services/service-1.webp" alt="" />
+            <img src="/services/service-2.webp" alt="" />
+            <img src="/services/service-3.webp" alt="" />
           </div>
 
           <div className="image-slider slider-two">
-            <img src="/services/service-4.jpeg" alt="" />
-            <img src="/services/service-5.jpeg" alt="" />
-            <img src="/services/service-6.jpeg" alt="" />
+            <img src="/services/service-4.webp" alt="" />
+            <img src="/services/service-5.webp" alt="" />
+            <img src="/services/service-6.webp" alt="" />
           </div>
         </div>
       </section>

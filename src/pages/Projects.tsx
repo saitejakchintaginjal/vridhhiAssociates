@@ -6,21 +6,21 @@ const projects = [
     type: "Residential",
     location: "Sulla Road, Hubli",
     status: "Ongoing",
-    image: "public/projects/project2.jpeg",
+    image: "/projects/project2.webp",
   },
   {
     title: "Heritage Villa Renovation",
     type: "Residential",
     location: "Sangoli Rayanna Nagar, Hubli",
     status: "Completed",
-    image: "public/projects/project3.jpeg",
+    image: "/projects/project3.webp",
   },
   {
     title: "Green Heights Residency",
     type: "Residential",
     location: "Kuberapuram, Hubli",
     status: "Completed",
-    image: "public/projects/project4.jpeg",
+    image: "/projects/project4.webp",
   },
 ];
 
@@ -34,10 +34,14 @@ const Projects = () => {
           {projects.map((p) => (
             <div key={p.title} className="col-lg-4 col-md-6">
               <div className="project-card soft-card">
-                <div
-                  className="project-image"
-                  style={{ backgroundImage: `url(${p.image})` }}
-                >
+                <div className="project-image-wrapper">
+                  <img
+                    src={p.image}
+                    alt={`${p.title} - ${p.location}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+
                   <span
                     className={`project-badge ${
                       p.status === "Completed"
@@ -50,9 +54,8 @@ const Projects = () => {
                 </div>
 
                 <div className="project-content">
-                  <small className="text-muted">{p.type}</small>
-                  {/* <h5>{p.title}</h5> */}
-                  <p className="text-muted">{p.location}</p>
+                  <small>{p.type}</small>
+                  <p>{p.location}</p>
                 </div>
               </div>
             </div>

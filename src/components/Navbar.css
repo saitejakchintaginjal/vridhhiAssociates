@@ -1,48 +1,90 @@
+/* ---------- NAVBAR BASE ---------- */
 
-.navbar .nav-link {
+.custom-navbar {
+  background: #ffffff;
+  min-height: 80px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---------- LINKS ---------- */
+
+.nav-link {
   font-weight: 500;
-  color: var(--text-dark);
+  color: #0f172a;
+  text-decoration: none;
 }
 
-.navbar .nav-link:hover {
-  color: var(--primary);
+.nav-link:hover {
+  color: #2563eb;
 }
 
-/* Fix bootstrap toggler icon */
+/* ---------- HAMBURGER ---------- */
 
 .navbar-toggler {
   border: none;
+  background: transparent;
+  font-size: 22px;
+  display: none;
 }
 
 .navbar-toggler:focus {
-  box-shadow: none;
+  outline: none;
 }
 
-/* ============================= */
-/* PREVENT NAVBAR SHIFT */
-/* ============================= */
+/* ---------- MENU ---------- */
 
-.navbar {
+.nav-menu {
   display: flex;
   align-items: center;
+  gap: 24px;
 }
 
-/* Lock brand alignment */
-.navbar-brand {
-  display: flex;
-  align-items: center;
+.call-btn {
+  margin-left: 12px;
 }
 
-/* Prevent collapse animation affecting header height */
-.navbar-collapse {
-  position: absolute;
-  top: 80px; /* same as navbar height */
-  right: 0;
-  left: 0;
-}
+/* ---------- MOBILE ---------- */
 
-@media (min-width: 992px) {
-  .navbar-collapse {
-    position: static;
+@media (max-width: 992px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 24px;
+    gap: 18px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.25s ease;
+  }
+
+  .nav-menu.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .call-btn {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
   }
 }

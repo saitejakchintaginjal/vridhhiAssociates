@@ -1,5 +1,7 @@
-import FloatingButtons from "../components/FloatingButtons";
+import { lazy } from "react";
 import Navbar from "../components/Navbar";
+
+const FloatingButtons = lazy(() => import("../components/FloatingButtons"));
 
 type Props = {
   children: React.ReactNode;
@@ -10,8 +12,6 @@ const Layout = ({ children }: Props) => {
     <>
       <Navbar />
       {children}
-
-      {/* Global Floating Actions */}
       <FloatingButtons />
     </>
   );

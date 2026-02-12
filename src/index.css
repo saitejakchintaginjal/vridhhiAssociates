@@ -47,6 +47,29 @@ body {
   color: var(--text-dark);
 }
 
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* tablet */
+@media (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* desktop */
+@media (min-width: 1200px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 section {
   padding: 100px 0;
   scroll-margin-top: var(--navbar-height);
@@ -102,10 +125,6 @@ p {
 }
 
 @media (max-width: 768px) {
-  section {
-    padding: 70px 0;
-  }
-
   .section-title {
     font-size: 2rem;
     margin-bottom: 40px;
@@ -116,7 +135,7 @@ p {
 
 @media (max-width: 768px) {
   .about-hero {
-    padding: 80px 0;
+    padding: 40px 0;
   }
 
   .about-hero h2 {

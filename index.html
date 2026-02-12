@@ -2,10 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Mobile optimization -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vridhhi-associates</title>
+
+    <!-- SEO -->
+    <title>Vridhhi Associates | Construction & Waterproofing Experts</title>
+
+    <meta
+      name="description"
+      content="Vridhhi Associates provides residential, commercial construction and waterproofing services in Hubli. Trusted quality construction with on-time delivery."
+    />
+
+    <!-- Performance: Preload LCP image (HUGE improvement) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/projects/HomeBackground.webp"
+      fetchpriority="high"
+    />
+
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/vite.svg" />
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

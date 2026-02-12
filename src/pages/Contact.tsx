@@ -1,6 +1,6 @@
 import "./Contact.css";
 import { useRef, useState } from "react";
-import emailjs from "emailjs-com";
+// import emailjs from "emailjs-com";
 
 /* ---------------- ICONS ---------------- */
 
@@ -92,13 +92,15 @@ export default function Contact() {
   //     );
   // };
 
-  const sendEmail = (e: React.FormEvent) => {
+  const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
 
     setLoading(true);
     setModalStatus("sending");
 
-    emailjs
+    const emailjs = await import("emailjs-com");
+
+    emailjs.default
       .sendForm(
         "service_6v08qg8",
         "template_f1008yn",
@@ -142,13 +144,25 @@ export default function Contact() {
               <form ref={formRef} onSubmit={sendEmail}>
                 <div className="form-row">
                   <input name="name" placeholder="Your Name *" required />
-                  <input name="phone" placeholder="Phone Number *" required />
+                  <input
+                    name="phone"
+                    placeholder="Phone Number *"
+                    required
+                    type="tel"
+                    inputMode="numeric"
+                    maxLength={10}
+                    pattern="[0-9]{10}"
+                    title="Phone number must be exactly 10 digits"
+                    onChange={(e) => {
+                      e.target.value = e.target.value.replace(/\D/g, "");
+                    }}
+                  />
                 </div>
 
                 <input
                   name="email"
-                  placeholder="Email Address *"
-                  required
+                  type="email"
+                  placeholder="Email Address (Optional)"
                   className="emailField"
                 />
 
