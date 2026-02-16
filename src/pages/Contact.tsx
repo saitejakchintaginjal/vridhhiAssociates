@@ -66,32 +66,6 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [modalStatus, setModalStatus] = useState<ModalStatus>("idle");
 
-  // const sendEmail = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setShowModal(true);
-
-  //   emailjs
-  //     .sendForm(
-  //       "service_6v08qg8", //replace
-  //       "template_f1008yn", // replace
-  //       formRef.current!,
-  //       "zQl56Ji0l4W0xoGgZ", // replace
-  //     )
-  //     .then(
-  //       () => {
-  //         // alert("Message sent successfully!");
-  //         // setTimeout(() => setShowModal(false), 3000);
-  //         formRef.current?.reset();
-  //         setLoading(false);
-  //       },
-  //       () => {
-  //         alert("Failed to send message. Try again.");
-  //         setLoading(false);
-  //       },
-  //     );
-  // };
-
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
 
