@@ -19,14 +19,19 @@ const Home = () => {
           Trusted Construction Partner
         </span>
 
-        <h1>
+        {/* SEO: BRAND H1 */}
+        <h1 className="brand-title">Vridhhi Associates</h1>
+
+        {/* Tagline */}
+        <h2 className="hero-tagline">
           We Build.
           <br />
           We Protect.
-        </h1>
+        </h2>
 
         <p>
-          Vridhhi Associates delivers residential, commercial and waterproofing
+          Vridhhi Associates is a construction and waterproofing company based
+          in Hubli, India. We deliver residential, commercial and waterproofing
           projects with focus on quality, safety and on-time execution.
         </p>
 
