@@ -1,27 +1,53 @@
+@import "./styles/theme.css";
+@import "./styles/card.css";
+/* =========================================================
+   GLOBAL DESIGN TOKENS
+   ========================================================= */
+
 :root {
-  /* Brand Colors */
-  --primary: #1f4f7a;
-  --primary-dark: #173c5d;
-  --accent: #f2b705;
+  /* ---------- BRAND ---------- */
+  --brand-primary: #1f4f7a;
+  --brand-primary-dark: #173c5d;
+  --brand-accent: #f2b705;
+  --brand-dark: #0f172a;
 
-  /* Backgrounds */
-  --bg-light: #f6f8fb;
-  --bg-white: #ffffff;
-
-  /* Text */
-  --text-dark: #1f2933;
+  /* ---------- TEXT ---------- */
+  --text-main: #1f2933;
   --text-muted: #6b7280;
+  --text-light: #e5e7eb;
 
-  /* Radius */
-  --radius-lg: 16px;
-  --radius-md: 12px;
+  /* ---------- BACKGROUND ---------- */
+  --bg-page: #ffffff;
+  --bg-section: #f6f8fb;
+  --bg-soft: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-dark: #031d41;
 
-  /* Shadow */
+  /* ---------- RADIUS ---------- */
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  /* ---------- SHADOW ---------- */
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.12);
 
-  /* Layout */
+  /* ---------- LAYOUT ---------- */
   --navbar-height: 80px;
+  --section-padding: 80px;
 }
+
+/* responsive navbar */
+@media (max-width: 992px) {
+  :root {
+    --navbar-height: 70px;
+    --section-padding: 60px;
+  }
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 *,
 *::before,
@@ -36,7 +62,6 @@ html {
 
 body {
   margin: 0;
-  padding-top: var(--navbar-height);
   font-family:
     Inter,
     system-ui,
@@ -44,106 +69,124 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-  background: var(--bg-light);
-  color: var(--text-dark);
+  background: var(--bg-section);
+  color: var(--text-main);
   height: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 #root {
-  height: 100%;
+  min-height: calc(100vh - var(--navbar-height));
+  margin-top: var(--navbar-height);
+  display: flex;
+  flex-direction: column;
 }
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
 
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-/* tablet */
-@media (min-width: 768px) {
-  .container {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-}
-
-/* desktop */
-@media (min-width: 1200px) {
-  .container {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
+/* =========================================================
+   SECTION SYSTEM (GLOBAL)
+   ========================================================= */
 
 section {
-  padding: 50px 0;
+  padding: var(--section-padding) 0;
   scroll-margin-top: var(--navbar-height);
 }
 
 .section-light {
-  background: var(--bg-light);
+  background: var(--bg-section);
 }
 
 .section-white {
-  background: var(--bg-white);
+  background: var(--bg-page);
+}
+
+.section-dark {
+  background: var(--brand-dark);
+  color: #fff;
 }
 
 .section-title {
   text-align: center;
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
-  margin-bottom: 60px;
-  color: var(--text-dark);
+  margin-bottom: 12px;
+  margin: 0 auto;
+  color: var(--text-main);
 }
 
-p {
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0 auto 50px;
   line-height: 1.7;
 }
 
+/* =========================================================
+   CARD SYSTEM
+   ========================================================= */
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: 24px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-dark {
+  background: var(--bg-dark);
+  color: #fff;
+}
+
+/* legacy alias (safe for existing components) */
 .soft-card {
-  background: var(--bg-white);
-  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .soft-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-hover);
 }
 
-@media (max-width: 991px) {
-  .navbar-collapse {
-    background: white;
-    padding: 18px;
-    border-radius: 14px;
-    margin-top: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-  }
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
 
-  .nav-link {
-    padding: 12px 0;
-    font-size: 1rem;
-  }
+p {
+  line-height: 1.7;
+  color: var(--text-main);
 }
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-  }
-}
-
-/* Mobile */
-
-@media (max-width: 768px) {
-  .about-hero {
-    padding: 40px 0;
-  }
-
-  .about-hero h2 {
-    font-size: 2rem;
+    margin-bottom: 32px;
   }
 }

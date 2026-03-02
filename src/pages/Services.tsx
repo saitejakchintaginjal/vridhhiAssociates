@@ -22,13 +22,6 @@ const FaProjectDiagram = lazy(() =>
 const FaCheckCircle = lazy(() =>
   import("react-icons/fa").then((m) => ({ default: m.FaCheckCircle })),
 );
-const FaChevronLeft = lazy(() =>
-  import("react-icons/fa").then((m) => ({ default: m.FaChevronLeft })),
-);
-const FaChevronRight = lazy(() =>
-  import("react-icons/fa").then((m) => ({ default: m.FaChevronRight })),
-);
-
 const services = [
   {
     title: "Residential Construction",
@@ -104,146 +97,71 @@ const services = [
   },
 ];
 
-export default function ServicesPage() {
-  const [index, setIndex] = useState(0);
+/* ================= SERVICES ACCORDION ================= */
 
-  const prev = () => setIndex((i) => (i === 0 ? services.length - 1 : i - 1));
-  const next = () => setIndex((i) => (i === services.length - 1 ? 0 : i + 1));
+export default function ServicesPage() {
+  const [active, setActive] = useState<number | null>(0);
+
+  const toggle = (i: number) => {
+    setActive((prev) => (prev === i ? null : i));
+  };
 
   return (
     <>
       {/* HERO */}
-      <section className="services-hero" id="services">
+      <section id="services" className="services-header">
         <div className="container">
-          <h1>Our Services</h1>
-          <p>
-            Comprehensive construction solutions delivered with quality,
-            transparency and reliability.
+          <h2 className="section-header">Our Services</h2>
+          <p className="section-subtitle">
+            Practical construction and waterproofing solutions delivered with
+            quality workmanship and reliability.
           </p>
         </div>
       </section>
 
-      {/* SERVICES CAROUSEL */}
-
-      {/* <div className="services-carousel-section">
-        <div className="container carousel-wrapper">
-      
-          <button className="carousel-btn left" onClick={prev}>
-            <FaChevronLeft />
-          </button>
-
-          <div className="carousel-viewport">
-            <div
-              className="carousel-track"
-              style={{ transform: `translateX(-${index * 100}%)` }}
-            >
-              {services.map((s, i) => (
-                <div
-                  className="service-card"
-                  key={i}
-                  style={{ "--card-color": s.color } as React.CSSProperties}
-                >
-                  <div className="service-card-title">
-                    <div
-                      className="service-card-icon"
-                      style={{ "--icon-color": s.color } as React.CSSProperties}
-                    >
-                      {s.icon}
-                    </div>
-                    <h3>{s.title}</h3>
-                  </div>
-
-                  <p className="service-card-desc">{s.desc}</p>
-
-                  <div className="service-points">
-                    {s.points.map((p, idx) => (
-                      <div className="service-point" key={idx}>
-                        <FaCheckCircle
-                          className="point-icon"
-                          style={{ color: s.color }}
-                        />
-                        <span>{p}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <button className="carousel-btn right" onClick={next}>
-            <FaChevronRight />
-          </button>
-        </div>
-      </div> */}
-
-      {/* SERVICES CAROUSEL */}
-
-      <div className="services-carousel-section">
-        <div className="container carousel-wrapper">
-          {/* SERVICE TITLES NAV */}
-          <div className="services-nav">
+      {/* ACCORDION */}
+      <section className="services-accordion-section">
+        <div className="container">
+          <div className="services-accordion">
             {services.map((s, i) => (
-              <button
+              <div
                 key={i}
-                className={`services-nav-item ${i === index ? "active" : ""}`}
-                onClick={() => setIndex(i)}
+                className={`service-row ${active === i ? "active" : ""}`}
               >
-                {s.title}
-              </button>
+                <button
+                  className="service-row-header"
+                  onClick={() => toggle(i)}
+                >
+                  <div className="service-row-title">
+                    <span className="service-row-icon">{s.icon}</span>
+                    <span>{s.title}</span>
+                  </div>
+
+                  <span
+                    className={`service-row-toggle ${active === i ? "open" : ""}`}
+                  >
+                    ▼
+                  </span>
+                </button>
+
+                <div className="service-row-content">
+                  <p>{s.desc}</p>
+
+                  <ul>
+                    {s.points.map((p, idx) => (
+                      <li key={idx}>
+                        <FaCheckCircle /> {p}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             ))}
           </div>
-
-          {/* arrows */}
-          <button className="carousel-btn left" onClick={prev}>
-            <FaChevronLeft />
-          </button>
-
-          <div className="carousel-viewport">
-            <div
-              className="carousel-track"
-              style={{ transform: `translateX(-${index * 100}%)` }}
-            >
-              {services.map((s, i) => (
-                <div
-                  className="service-card"
-                  key={i}
-                  style={{ "--card-color": s.color } as React.CSSProperties}
-                >
-                  <div className="service-card-title">
-                    <div
-                      className="service-card-icon"
-                      style={{ "--icon-color": s.color } as React.CSSProperties}
-                    >
-                      {s.icon}
-                    </div>
-                    <h3>{s.title}</h3>
-                  </div>
-
-                  <p className="service-card-desc">{s.desc}</p>
-
-                  <div className="service-points">
-                    {s.points.map((p, idx) => (
-                      <div className="service-point" key={idx}>
-                        <FaCheckCircle
-                          className="point-icon"
-                          style={{ color: s.color }}
-                        />
-                        <span>{p}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <button className="carousel-btn right" onClick={next}>
-            <FaChevronRight />
-          </button>
         </div>
-      </div>
+      </section>
 
+      {/* KEEP YOUR EXISTING IMAGE SECTION EXACTLY AS IS */}
       <div className="services-image-section">
         <div className="container image-grid">
           <div className="image-slider slider-one">

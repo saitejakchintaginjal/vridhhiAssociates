@@ -2,7 +2,7 @@
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   overflow: hidden;
 }
 
@@ -34,7 +34,6 @@
 .hero-content {
   color: #fff;
   max-width: 720px;
-  /* padding: 40px 0; */
 }
 
 /* Badge */

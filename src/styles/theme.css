@@ -1,0 +1,31 @@
+:root {
+  /* ================= BRAND ================= */
+  --brand-primary: #1f4f7a;
+  --brand-primary-dark: #173c5d;
+  --brand-dark: #0f172a;
+  --brand-accent: #f2b705;
+
+  /* ================= TEXT ================= */
+  --text-main: #0f172a;
+  --text-muted: #354255;
+  --text-light: #e5e7eb;
+
+  /* ================= BACKGROUND ================= */
+  --bg-page: #ffffff;
+  --bg-section: #f1f5f9;
+  --bg-soft: #f6f8fb;
+  --bg-card: #ffffff;
+  --bg-dark: #031d41;
+
+  /* ================= RADIUS ================= */
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  /* ================= SHADOW ================= */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+
+  /* ================= SPACING ================= */
+  --section-padding: 80px;
+}

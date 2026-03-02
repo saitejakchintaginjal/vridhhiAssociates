@@ -17,7 +17,7 @@ const Home = () => {
       <div className="home-overlay"></div>
 
       <div className="container hero-content">
-        <span className="hero-badge">Trusted Construction Partner</span>
+        <span className="hero-badge">Built on Trust</span>
 
         {/* Primary SEO Heading */}
         <h1 className="brand-title">Vridhhi Associates</h1>

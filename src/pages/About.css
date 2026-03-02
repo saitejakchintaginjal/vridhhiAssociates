@@ -1,0 +1,261 @@
+/* ================= SPLIT ABOUT ================= */
+
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* IMAGE */
+
+.about-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* TEXT */
+
+.about-text {
+  max-width: 520px;
+}
+
+/* ================= ABOUT HEADER ================= */
+
+.about-header {
+  margin-bottom: 22px;
+}
+
+.about-label {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  margin-bottom: 6px;
+}
+
+.about-title {
+  font-size: clamp(1.9rem, 4.6vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0 0 10px;
+  color: var(--text-main);
+}
+
+/* subtle accent line */
+.about-divider {
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-primary), transparent);
+  border-radius: 2px;
+}
+
+.about-text p {
+  color: var(--text-main);
+  margin-bottom: 14px;
+}
+
+/* INLINE STATS */
+
+/* ================= INLINE STATS HIGHLIGHT ================= */
+
+.about-inline-stats {
+  display: flex;
+  gap: 16px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.about-inline-stats div {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 14px;
+  min-width: 84px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  border-top: 3px solid var(--brand-accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-inline-stats strong {
+  font-size: 1.4rem;
+  color: var(--brand-primary);
+  line-height: 1;
+}
+
+.about-inline-stats span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ================= STATS GRID ================= */
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.completion-count {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--brand-accent);
+  margin: 8px 0;
+}
+
+/* ================= PROCESS ================= */
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 28px;
+  position: relative;
+}
+
+.process-step {
+  text-align: center;
+  position: relative;
+}
+
+.process-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin: 0 auto 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.process-step h4 {
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+.process-step p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* connecting line */
+.process-steps::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: #dbe2ea;
+  z-index: 0;
+}
+
+/* mobile */
+@media (max-width: 900px) {
+  .process-steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .process-steps::before {
+    display: none;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+  .about-split {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .about-inline-stats {
+    justify-content: space-between;
+  }
+}
+
+/* ================= PROCESS MOBILE TIMELINE CONNECTED ================= */
+
+@media (max-width: 768px) {
+  .about-inline-stats {
+    justify-content: space-between;
+  }
+
+  .about-inline-stats div {
+    flex: 1;
+    min-width: unset;
+    padding: 10px 8px;
+  }
+
+  .about-inline-stats strong {
+    font-size: 1.3rem;
+  }
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding-left: 42px;
+  }
+
+  .process-step {
+    position: relative;
+    text-align: left;
+  }
+
+  /* circle */
+  .process-icon {
+    position: absolute;
+    left: -42px;
+    top: 0;
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+    margin: 0;
+    z-index: 2;
+  }
+
+  /* connecting line */
+  .process-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: -25px; /* center of circle */
+    top: 34px; /* bottom of circle */
+    width: 2px;
+    height: calc(100% + 8px);
+    background: #dbe2ea;
+  }
+
+  .process-step h4 {
+    font-size: 0.98rem;
+    margin: 0 0 4px;
+  }
+
+  .process-step p {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .section-subtitle {
+    margin-bottom: 20px;
+  }
+}

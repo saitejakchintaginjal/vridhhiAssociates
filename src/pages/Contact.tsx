@@ -46,17 +46,6 @@ const ClockIcon = () => (
   </svg>
 );
 
-const SendIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-    <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2" />
-    <path
-      d="M22 2L15 22L11 13L2 9L22 2Z"
-      stroke="currentColor"
-      strokeWidth="2"
-    />
-  </svg>
-);
-
 /* ---------------- COMPONENT ---------------- */
 
 type ModalStatus = "idle" | "sending" | "success" | "error";
@@ -98,49 +87,113 @@ export default function Contact() {
     <>
       <section id="contact" className="contact-section">
         <div className="container">
+          {/* HEADER */}
           <div className="contact-header">
-            <h2>Get In Touch</h2>
+            <h2>Contact Us</h2>
+            <div className="contact-divider" />
             <p>
-              Reach out to us for residential, commercial construction and
-              waterproofing solutions.
+              Get in touch for construction, waterproofing and renovation
+              enquiries. Our team will respond promptly.
             </p>
           </div>
 
-          <div className="contact-grid">
-            {/* ---------------- FORM ---------------- */}
-            <div className="contact-form-card">
-              <h3>Send Us a Message</h3>
-              <p>
-                Fill out the form below and we'll get back to you as soon as
-                possible.
+          {/* CONTENT */}
+          <div className="contact-layout">
+            {/* INFO PANEL */}
+            <div className="contact-info-panel">
+              <h3>Vridhhi Associates</h3>
+              <p className="contact-intro">
+                Reliable construction and waterproofing services delivered with
+                precision and quality workmanship.
+              </p>
+
+              <div className="info-list">
+                <div className="info-item">
+                  <PhoneIcon />
+                  <div>
+                    <strong>Phone</strong>
+                    <span>+91 8792076681</span>
+                    <small>Pradeep V Dhavande</small>
+                  </div>
+                </div>
+
+                <div className="info-item">
+                  <MailIcon />
+                  <div>
+                    <strong>Email</strong>
+                    <span>vridhhiassociate@gmail.com</span>
+                    <small>Response within 24 hours</small>
+                  </div>
+                </div>
+
+                <div className="info-item">
+                  <MapIcon />
+                  <div>
+                    <strong>Office</strong>
+                    <span>Vidya Nagar, Hubli</span>
+                    <small>
+                      B-14 Marvel Artiza, Opp Kim's,Vidya Nagar, Hubli
+                    </small>
+                  </div>
+                </div>
+
+                <div className="info-item">
+                  <ClockIcon />
+                  <div>
+                    <strong>Hours</strong>
+                    <span>Mon – Sat · 10 AM – 8 PM</span>
+                    <small>Sunday closed</small>
+                  </div>
+                </div>
+              </div>
+
+              <div className="contact-actions">
+                <a href="tel:918792076681" className="btn-call">
+                  Call
+                </a>
+                <a
+                  href="https://wa.me/918792076681"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-whatsapp"
+                >
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+
+            {/* FORM PANEL */}
+            <div className="contact-form-panel">
+              <h3>Send Enquiry</h3>
+              <p className="form-intro">
+                Share your requirement and we’ll contact you shortly.
               </p>
 
               <form ref={formRef} onSubmit={sendEmail}>
                 <div className="form-row">
-                  <input name="name" placeholder="Your Name *" required />
+                  <input name="name" placeholder="Name *" required />
                   <input
                     name="phone"
-                    placeholder="Phone Number *"
+                    placeholder="Phone *"
                     required
                     type="tel"
                     inputMode="numeric"
                     maxLength={10}
                     pattern="[0-9]{10}"
-                    title="Phone number must be exactly 10 digits"
-                    onChange={(e) => {
-                      e.target.value = e.target.value.replace(/\D/g, "");
-                    }}
+                    onChange={(e) =>
+                      (e.target.value = e.target.value.replace(/\D/g, ""))
+                    }
                   />
                 </div>
 
                 <input
                   name="email"
                   type="email"
-                  placeholder="Email Address (Optional)"
-                  className="emailField"
+                  placeholder="Email (optional)"
                 />
-                <select name="workType" required className="workSelect">
-                  <option value="">Select Type of Work *</option>
+
+                <select name="workType" required>
+                  <option value="">Type of Work *</option>
                   <option value="construction">Construction</option>
                   <option value="waterproofing">Waterproofing</option>
                   <option value="renovation">Renovation</option>
@@ -149,84 +202,9 @@ export default function Contact() {
                 </select>
 
                 <button type="submit" disabled={loading}>
-                  {loading ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      Send Message <SendIcon />
-                    </>
-                  )}
+                  {loading ? "Sending…" : "Submit Enquiry"}
                 </button>
               </form>
-            </div>
-
-            {/* ---------------- INFO ---------------- */}
-            <div className="contact-info-card">
-              <h3>Contact Information</h3>
-              <p>Reach out to us through any of the following channels.</p>
-
-              <div className="info-item">
-                <PhoneIcon />
-                <div>
-                  <strong>Phone</strong>
-                  <span>+91 8792076681</span>
-                  <small>Contact Person: Pradeep V Dhavande</small>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <MailIcon />
-                <div>
-                  <strong>Email</strong>
-                  <span>vridhhiassociate@gmail.com</span>
-                  <small>We'll respond within 24 hours</small>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <MapIcon />
-                <div>
-                  <strong>Address</strong>
-                  <span>Vridhhi Associates</span>
-                  <small>
-                    B-14 Marvel Artiza, Opposite Kim's, Vidya Nagar, Hubli –
-                    580021
-                  </small>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <ClockIcon />
-                <div>
-                  <strong>Business Hours</strong>
-                  <span>Mon - Sat: 10:00 AM - 8:00 PM</span>
-                  <small>Sunday: Closed</small>
-                </div>
-              </div>
-
-              <div className="contact-actions">
-                <a href="tel:918792076681" className="btn-call">
-                  Call Now
-                </a>
-
-                <a
-                  href="https://wa.me/918792076681"
-                  className="btn-whatsapp"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  WhatsApp
-                </a>
-              </div>
-
-              {/* ---------------- MAP ---------------- */}
-              {/* <div className="map-wrapper">
-              <iframe
-                title="Vridhhi Associates Location"
-                src="https://www.google.com/maps?q=Vidya%20Nagar%20Hubli&output=embed"
-                loading="lazy"
-              />
-            </div> */}
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import "./Projects.css";
 const projects = [
   {
     title: "Tech Park Office Complex",
-    type: "Residential",
+    type: "Commercial",
     location: "Sulla Road, Hubli",
     status: "Ongoing",
     image: "/projects/project2.webp",
@@ -24,37 +24,38 @@ const projects = [
   },
 ];
 
-const Projects = () => {
+export default function Projects() {
   return (
     <section id="projects" className="section-light">
       <div className="container">
-        <h2 className="section-title">Our Projects</h2>
+        <div className="projects-header">
+          <h2>Our Projects</h2>
+          <div className="projects-divider"></div>
+          <p>
+            Selected construction and renovation works delivered with precision
+          </p>
+        </div>
 
-        <div className="row g-4">
+        <div className="projects-grid">
           {projects.map((p) => (
-            <div key={p.title} className="col-lg-4 col-md-6">
-              <div className="project-card soft-card">
-                <div
-                  className={`project-badge ${
+            <div key={p.title} className="project-card">
+              <div className="project-image">
+                <img src={p.image} alt={`${p.title} - ${p.location}`} />
+
+                <span
+                  className={`project-status ${
                     p.status === "Completed"
-                      ? "badge-completed"
-                      : "badge-ongoing"
+                      ? "status-completed"
+                      : "status-ongoing"
                   }`}
                 >
                   {p.status}
-                </div>
-                <div className="project-image-wrapper">
-                  <img
-                    src={p.image}
-                    alt={`${p.title} - ${p.location}`}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
+                </span>
 
-                <div className="project-content">
-                  <small>{p.type}</small>
+                <div className="project-overlay">
+                  {/* <h3>{p.title}</h3> */}
                   <p>{p.location}</p>
+                  <small>{p.type}</small>
                 </div>
               </div>
             </div>
@@ -63,6 +64,4 @@ const Projects = () => {
       </div>
     </section>
   );
-};
-
-export default Projects;
+}
