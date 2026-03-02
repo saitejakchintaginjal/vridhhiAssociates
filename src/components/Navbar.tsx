@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Navbar.css";
-import logo from "../assets/logo/Vridhhi1.jpg";
+import logo from "../../public/Vridhhi1.jpg";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,30 +9,31 @@ const Navbar = () => {
 
   return (
     <nav className="navbar fixed-top custom-navbar">
+      {menuOpen && (
+        <div className="nav-backdrop" onClick={() => setMenuOpen(false)} />
+      )}
+
       <div className="container navbar-inner">
         {/* Logo */}
         <a
           href="#home"
-          className="navbar-brand d-flex align-items-center gap-2"
+          className="navbar-brand brand"
           onClick={handleLinkClick}
         >
-          <img
-            src={logo}
-            alt="Vridhhi Associates Logo"
-            width={60}
-            height={60}
-          />
-          <strong>Vridhhi Associates</strong>
+          <img src={logo} alt="Vridhhi Associates Logo" />
+          <span>Vridhhi Associates</span>
         </a>
 
         {/* Hamburger */}
         <button
-          className="navbar-toggler"
+          className={`navbar-toggler ${menuOpen ? "open" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation"
           aria-expanded={menuOpen}
         >
-          ☰
+          <span />
+          <span />
+          <span />
         </button>
 
         {/* Menu */}
@@ -50,7 +51,7 @@ const Navbar = () => {
 
           <a
             href="tel:918792076681"
-            className="btn btn-outline-primary call-btn"
+            className="call-btn"
             onClick={handleLinkClick}
           >
             Call Now

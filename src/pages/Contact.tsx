@@ -139,13 +139,14 @@ export default function Contact() {
                   placeholder="Email Address (Optional)"
                   className="emailField"
                 />
-
-                <textarea
-                  name="message"
-                  rows={5}
-                  placeholder="Your Message *"
-                  required
-                />
+                <select name="workType" required className="workSelect">
+                  <option value="">Select Type of Work *</option>
+                  <option value="construction">Construction</option>
+                  <option value="waterproofing">Waterproofing</option>
+                  <option value="renovation">Renovation</option>
+                  <option value="consultation">Consultation</option>
+                  <option value="interior">Interior</option>
+                </select>
 
                 <button type="submit" disabled={loading}>
                   {loading ? (

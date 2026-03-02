@@ -19,7 +19,9 @@
   color: #fff;
   text-decoration: none;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 /* WhatsApp */
@@ -32,6 +34,14 @@
   background: #1f4f7a;
 }
 
+.floating-btn.instagram {
+  background: #e1306c;
+}
+
+.floating-btn.instagram:hover {
+  background: #c72b60;
+}
+
 /* Hover */
 .floating-btn:hover {
   transform: translateY(-4px) scale(1.05);
@@ -41,7 +51,7 @@
 /* Mobile sizing */
 @media (max-width: 768px) {
   .floating-btn {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
   }
 }

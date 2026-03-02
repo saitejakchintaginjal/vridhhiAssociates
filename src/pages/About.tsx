@@ -34,21 +34,21 @@ const AboutPage = () => {
           </p>
 
           <div className="projects-grid">
-            <div className="project-card">
+            <div className="completion-card">
               <h3>Construction</h3>
-              <span className="project-count">20+</span>
+              <span className="completion-count">20+</span>
               <p>Residential & commercial buildings delivered</p>
             </div>
 
-            <div className="project-card">
+            <div className="completion-card">
               <h3>Waterproofing</h3>
-              <span className="project-count">100+</span>
+              <span className="completion-count">100+</span>
               <p>Terrace, basement & structural waterproofing works</p>
             </div>
 
-            <div className="project-card">
+            <div className="completion-card">
               <h3>Renovation</h3>
-              <span className="project-count">45+</span>
+              <span className="completion-count">45+</span>
               <p>Home, office and structural renovation projects</p>
             </div>
           </div>

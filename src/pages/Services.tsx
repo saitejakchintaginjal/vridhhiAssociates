@@ -1,14 +1,5 @@
-import { lazy } from "react";
+import { lazy, useState } from "react";
 import "./ServicesPage.css";
-// import {
-//   FaHome,
-//   FaBuilding,
-//   FaWater,
-//   FaTools,
-//   FaCouch,
-//   FaProjectDiagram,
-//   FaCheckCircle,
-// } from "react-icons/fa";
 
 const FaHome = lazy(() =>
   import("react-icons/fa").then((m) => ({ default: m.FaHome })),
@@ -31,6 +22,12 @@ const FaProjectDiagram = lazy(() =>
 const FaCheckCircle = lazy(() =>
   import("react-icons/fa").then((m) => ({ default: m.FaCheckCircle })),
 );
+const FaChevronLeft = lazy(() =>
+  import("react-icons/fa").then((m) => ({ default: m.FaChevronLeft })),
+);
+const FaChevronRight = lazy(() =>
+  import("react-icons/fa").then((m) => ({ default: m.FaChevronRight })),
+);
 
 const services = [
   {
@@ -46,7 +43,7 @@ const services = [
     color: "#2563eb",
   },
   {
-    title: "Commercial Buildings",
+    title: "Commercial Construction",
     desc: "Efficient commercial spaces designed for business growth.",
     points: [
       "Office complexes",
@@ -107,7 +104,12 @@ const services = [
   },
 ];
 
-const ServicesPage = () => {
+export default function ServicesPage() {
+  const [index, setIndex] = useState(0);
+
+  const prev = () => setIndex((i) => (i === 0 ? services.length - 1 : i - 1));
+  const next = () => setIndex((i) => (i === services.length - 1 ? 0 : i + 1));
+
   return (
     <>
       {/* HERO */}
@@ -120,8 +122,62 @@ const ServicesPage = () => {
           </p>
         </div>
       </section>
-      {/* IMAGE SHOWCASE */}
-      <section className="services-image-section">
+
+      {/* SERVICES CAROUSEL */}
+
+      <div className="services-carousel-section">
+        <div className="container carousel-wrapper">
+          {/* arrows */}
+          <button className="carousel-btn left" onClick={prev}>
+            <FaChevronLeft />
+          </button>
+
+          <div className="carousel-viewport">
+            <div
+              className="carousel-track"
+              style={{ transform: `translateX(-${index * 100}%)` }}
+            >
+              {services.map((s, i) => (
+                <div
+                  className="service-card"
+                  key={i}
+                  style={{ "--card-color": s.color } as React.CSSProperties}
+                >
+                  <div className="service-card-title">
+                    <div
+                      className="service-card-icon"
+                      style={{ "--icon-color": s.color } as React.CSSProperties}
+                    >
+                      {s.icon}
+                    </div>
+                    <h3>{s.title}</h3>
+                  </div>
+
+                  <p className="service-card-desc">{s.desc}</p>
+
+                  <div className="service-points">
+                    {s.points.map((p, idx) => (
+                      <div className="service-point" key={idx}>
+                        <FaCheckCircle
+                          className="point-icon"
+                          style={{ color: s.color }}
+                        />
+                        <span>{p}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button className="carousel-btn right" onClick={next}>
+            <FaChevronRight />
+          </button>
+        </div>
+      </div>
+
+      <div className="services-image-section">
         <div className="container image-grid">
           <div className="image-slider slider-one">
             <img src="/services/service-1.webp" alt="" />
@@ -135,42 +191,7 @@ const ServicesPage = () => {
             <img src="/services/service-6.webp" alt="" />
           </div>
         </div>
-      </section>
-
-      {/* SERVICES GRID */}
-      <section className="services-grid-section">
-        <div className="container services-grid">
-          {services.map((s, i) => (
-            <div className="service-card" key={i}>
-              <div className="service-card-title">
-                <div
-                  className="service-card-icon"
-                  style={{ "--icon-color": s.color } as React.CSSProperties}
-                >
-                  {s.icon}
-                </div>
-                <h3>{s.title}</h3>
-              </div>
-
-              <p className="service-card-desc">{s.desc}</p>
-
-              <div className="service-points">
-                {s.points.map((p, idx) => (
-                  <div className="service-point" key={idx}>
-                    <FaCheckCircle
-                      className="point-icon"
-                      style={{ color: s.color }}
-                    />
-                    <span>{p}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      </div>
     </>
   );
-};
-
-export default ServicesPage;
+}

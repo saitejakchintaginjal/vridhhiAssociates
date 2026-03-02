@@ -1,11 +1,9 @@
 .home-hero {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
-
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  overflow: hidden;
 }
 
 /* HERO IMAGE */
@@ -16,57 +14,121 @@
   height: 100%;
   object-fit: cover;
   z-index: -2;
+  transform: scale(1.02); /* subtle premium zoom */
 }
 
-/* Overlay */
+/* Overlay — lighter + premium */
 .home-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to right,
-    rgba(37, 50, 65, 0.9),
-    rgba(8, 25, 43, 0.6)
+    100deg,
+    rgba(10, 25, 47, 0.88) 0%,
+    rgba(10, 25, 47, 0.65) 45%,
+    rgba(10, 25, 47, 0.35) 100%
   );
   z-index: -1;
 }
 
-/* Content */
+/* CONTENT */
 .hero-content {
-  position: relative;
-  color: white;
-  max-width: 680px;
+  color: #fff;
+  max-width: 720px;
+  /* padding: 40px 0; */
 }
 
+/* Badge */
+.hero-badge {
+  display: inline-block;
+  background: #f2b705;
+  color: #111;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  margin-bottom: 18px;
+}
+
+/* Brand */
+.brand-title {
+  font-size: clamp(1.3rem, 1.6vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  margin-bottom: 12px;
+  opacity: 0.95;
+}
+
+/* Main Hero Text */
+.hero-tagline {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+/* Description */
+.hero-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 26px;
+  max-width: 620px;
+}
+
+/* Buttons */
 .hero-buttons {
+  margin-top: 12px;
   display: flex;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
-  margin-top: 20px;
 }
 
+.hero-buttons .btn-primary {
+  background: #1f4f7a;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.hero-buttons .btn-primary:hover {
+  background: #173c5d;
+}
+
+.hero-buttons .btn-outline-light {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.hero-buttons .btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Feature chips */
 .hero-features {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 40px;
+  gap: 12px;
+  margin-top: 36px;
 }
 
 .hero-features span {
   padding: 8px 16px;
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.1);
-  font-size: 14px;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.brand-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 60px 10px;
+  }
 
-.hero-tagline {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.1;
+  .hero-tagline {
+    font-size: 2.2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
 }

@@ -1,4 +1,4 @@
-import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import { FaWhatsapp, FaPhoneAlt, FaInstagram } from "react-icons/fa";
 import "./FloatingButtons.css";
 
 export default function FloatingButtons() {
@@ -22,6 +22,17 @@ export default function FloatingButtons() {
         aria-label="Call Now"
       >
         <FaPhoneAlt size={20} />
+      </a>
+
+      {/* Instagram */}
+      <a
+        href="https://instagram.com/vridhhiassociates?igsh=MTUyOTIzOWOwZGdzMQ=="
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-btn instagram"
+        aria-label="Visit Instagram"
+      >
+        <FaInstagram size={22} />
       </a>
     </div>
   );

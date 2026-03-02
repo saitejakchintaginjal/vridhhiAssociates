@@ -1,6 +1,15 @@
 /* PROJECTS */
 
+.section-light {
+  padding: 50px 0;
+}
+
 .project-card {
+  background: #031d41;
+  /* padding: 28px; */
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
   overflow: hidden;
 }
 
@@ -20,6 +29,12 @@
 
 .project-content {
   padding: 20px;
+  color: white;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: white;
 }
 
 .project-content h5 {
@@ -39,23 +54,17 @@
 /* Badges */
 
 .project-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
   padding: 6px 14px;
-  border-radius: 30px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   z-index: 2;
 }
 
 .badge-completed {
-  background: #22c55e;
   color: white;
 }
 
 .badge-ongoing {
-  background: #2563eb;
   color: white;
 }
 
