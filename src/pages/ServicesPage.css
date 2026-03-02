@@ -6,22 +6,23 @@
   text-align: center;
 }
 
-.hero-content h1 {
+.services-hero h1 {
   font-size: 42px;
   margin-bottom: 12px;
 }
 
-.hero-content p {
+.services-hero p {
   max-width: 650px;
   margin: 0 auto;
   opacity: 0.9;
+  line-height: 1.6;
 }
 
 /* ---------- IMAGE SHOWCASE ---------- */
 
 .services-image-section {
   background: #ffffff;
-  padding: 50px 0 50px 0;
+  padding: 50px 0;
 }
 
 .image-grid {
@@ -86,17 +87,50 @@
 
 .services-carousel-section {
   background: #f1f5f9;
-  padding: 50px 0;
+  padding: 20px 0;
 }
 
 .carousel-wrapper {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+/* ---------- SERVICE NAV TITLES ---------- */
+
+.services-nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
+.services-nav-item {
+  border: none;
+  background: #e2e8f0;
+  color: #0f172a;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.services-nav-item:hover {
+  background: #cbd5e1;
+}
+
+.services-nav-item.active {
+  background: #0f172a;
+  color: #ffffff;
 }
 
 /* viewport hides overflow so only 1 card shows */
 .carousel-viewport {
+  border-radius: 1rem;
   overflow: hidden;
   width: 100%;
 }
@@ -217,7 +251,7 @@
 
 .carousel-btn {
   position: absolute;
-  top: 50%;
+  top: 66%;
   transform: translateY(-50%);
 
   border: none;
@@ -232,7 +266,7 @@
   align-items: center;
   justify-content: center;
 
-  color: #0f172a;
+  color: #888d97;
   font-size: 22px;
   cursor: pointer;
   z-index: 5;
@@ -259,7 +293,7 @@
 /* ---------- RESPONSIVE ---------- */
 
 @media (max-width: 1024px) {
-  .hero-content h1 {
+  .services-hero h1 {
     font-size: 36px;
   }
 
@@ -269,7 +303,7 @@
 }
 
 @media (max-width: 640px) {
-  .hero-content h1 {
+  .services-hero h1 {
     font-size: 30px;
   }
 
@@ -281,11 +315,17 @@
     font-size: 20px;
   }
 
-  .carousel-btn.left {
-    left: 6px;
+  /* mobile scrollable nav */
+  .services-nav {
+    flex-wrap: wrap; /* allow 2 rows */
+    justify-content: center;
+    gap: 6px;
   }
 
-  .carousel-btn.right {
-    right: 6px;
+  .services-nav-item {
+    padding: 6px 10px; /* smaller pills */
+    font-size: 11px; /* smaller text */
+    border-radius: 999px;
+    white-space: nowrap;
   }
 }

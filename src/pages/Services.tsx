@@ -114,7 +114,7 @@ export default function ServicesPage() {
     <>
       {/* HERO */}
       <section className="services-hero" id="services">
-        <div className="container hero-content">
+        <div className="container">
           <h1>Our Services</h1>
           <p>
             Comprehensive construction solutions delivered with quality,
@@ -125,8 +125,75 @@ export default function ServicesPage() {
 
       {/* SERVICES CAROUSEL */}
 
+      {/* <div className="services-carousel-section">
+        <div className="container carousel-wrapper">
+      
+          <button className="carousel-btn left" onClick={prev}>
+            <FaChevronLeft />
+          </button>
+
+          <div className="carousel-viewport">
+            <div
+              className="carousel-track"
+              style={{ transform: `translateX(-${index * 100}%)` }}
+            >
+              {services.map((s, i) => (
+                <div
+                  className="service-card"
+                  key={i}
+                  style={{ "--card-color": s.color } as React.CSSProperties}
+                >
+                  <div className="service-card-title">
+                    <div
+                      className="service-card-icon"
+                      style={{ "--icon-color": s.color } as React.CSSProperties}
+                    >
+                      {s.icon}
+                    </div>
+                    <h3>{s.title}</h3>
+                  </div>
+
+                  <p className="service-card-desc">{s.desc}</p>
+
+                  <div className="service-points">
+                    {s.points.map((p, idx) => (
+                      <div className="service-point" key={idx}>
+                        <FaCheckCircle
+                          className="point-icon"
+                          style={{ color: s.color }}
+                        />
+                        <span>{p}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button className="carousel-btn right" onClick={next}>
+            <FaChevronRight />
+          </button>
+        </div>
+      </div> */}
+
+      {/* SERVICES CAROUSEL */}
+
       <div className="services-carousel-section">
         <div className="container carousel-wrapper">
+          {/* SERVICE TITLES NAV */}
+          <div className="services-nav">
+            {services.map((s, i) => (
+              <button
+                key={i}
+                className={`services-nav-item ${i === index ? "active" : ""}`}
+                onClick={() => setIndex(i)}
+              >
+                {s.title}
+              </button>
+            ))}
+          </div>
+
           {/* arrows */}
           <button className="carousel-btn left" onClick={prev}>
             <FaChevronLeft />
