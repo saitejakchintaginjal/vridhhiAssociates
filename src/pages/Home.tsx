@@ -18,8 +18,6 @@ const Home = () => {
       <div className="home-overlay"></div>
 
       <div className="hero-main">
-        <HeroScene />
-
       <div className="container hero-content">
         <span className="hero-badge">Built on Trust</span>
 
@@ -37,6 +35,8 @@ const Home = () => {
           Hubli, delivering residential and commercial projects with precision,
           durability, and on-time execution.
         </p>
+
+        <HeroScene />
 
         <div className="hero-buttons">
           <a href="#contact" className="btn btn-primary btn-lg">

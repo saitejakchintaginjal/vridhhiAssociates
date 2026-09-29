@@ -15,7 +15,7 @@ export default function HeroScene() {
       <svg
         className="hero-house-svg"
         viewBox="0 0 600 400"
-        preserveAspectRatio="xMaxYMax meet"
+        preserveAspectRatio="xMidYMax meet"
         fill="none"
       >
         {/* sun + drifting clouds (always moving) */}

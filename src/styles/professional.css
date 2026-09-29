@@ -303,8 +303,7 @@ body {
 }
 
 #root .hero-content {
-  position: relative;
-  z-index: 1;
+  /* static, so the animated scene inside can anchor to .hero-main */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -317,6 +316,15 @@ body {
 
 #root .hero-content > * {
   max-width: 680px;
+}
+
+#root .hero-content > *:not(.hero-scene) {
+  position: relative;
+  z-index: 1;
+}
+
+#root .hero-content > .hero-scene {
+  max-width: none;
 }
 
 #root .hero-badge {
@@ -439,6 +447,12 @@ body {
 #root .hero-stats-grid span {
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+
+@media (max-width: 992px) {
+  #root .hero-content {
+    padding-top: 24px;
+  }
 }
 
 @media (max-width: 720px) {
