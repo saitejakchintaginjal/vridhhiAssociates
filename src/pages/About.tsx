@@ -9,7 +9,7 @@ export default function AboutPage() {
         <div className="about-split">
           {/* <div className="about-image">
             <img
-              src="/projects/project3.webp"
+              src="/projects/project3.jpg"
               alt="Construction project by Vridhhi Associates"
               loading="lazy"
             />

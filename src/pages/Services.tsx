@@ -1,4 +1,4 @@
-import { lazy, useState } from "react";
+import { lazy } from "react";
 import "./ServicesPage.css";
 
 const FaHome = lazy(() =>
@@ -22,6 +22,7 @@ const FaProjectDiagram = lazy(() =>
 const FaCheckCircle = lazy(() =>
   import("react-icons/fa").then((m) => ({ default: m.FaCheckCircle })),
 );
+
 const services = [
   {
     title: "Residential Construction",
@@ -33,7 +34,6 @@ const services = [
       "Turnkey execution",
     ],
     icon: <FaHome />,
-    color: "#2563eb",
   },
   {
     title: "Commercial Construction",
@@ -45,7 +45,6 @@ const services = [
       "Institutional buildings",
     ],
     icon: <FaBuilding />,
-    color: "#7c3aed",
   },
   {
     title: "Waterproofing Solutions",
@@ -57,7 +56,6 @@ const services = [
       "Structural protection",
     ],
     icon: <FaWater />,
-    color: "#0891b2",
   },
   {
     title: "Renovation & Remodeling",
@@ -69,7 +67,6 @@ const services = [
       "Facade improvement",
     ],
     icon: <FaTools />,
-    color: "#ea580c",
   },
   {
     title: "Interiors",
@@ -81,7 +78,6 @@ const services = [
       "Lighting design",
     ],
     icon: <FaCouch />,
-    color: "#16a34a",
   },
   {
     title: "Consultation",
@@ -93,90 +89,42 @@ const services = [
       "Cost control",
     ],
     icon: <FaProjectDiagram />,
-    color: "#dc2626",
   },
 ];
 
-/* ================= SERVICES ACCORDION ================= */
-
 export default function ServicesPage() {
-  const [active, setActive] = useState<number | null>(0);
-
-  const toggle = (i: number) => {
-    setActive((prev) => (prev === i ? null : i));
-  };
-
   return (
     <>
-      {/* HERO */}
       <section id="services" className="services-header">
         <div className="container">
-          <h2 className="section-header">Our Services</h2>
-          <p className="section-subtitle">
-            Practical construction and waterproofing solutions delivered with
-            quality workmanship and reliability.
-          </p>
-        </div>
-      </section>
+          <div className="pro-heading">
+            <span className="pro-eyebrow">What We Do</span>
+            <h2>Our Services</h2>
+            <p>
+              Practical construction and waterproofing solutions delivered with
+              quality workmanship and reliability.
+            </p>
+          </div>
 
-      {/* ACCORDION */}
-      <section className="services-accordion-section">
-        <div className="container">
-          <div className="services-accordion">
+          <div className="svc-grid">
             {services.map((s, i) => (
-              <div
-                key={i}
-                className={`service-row ${active === i ? "active" : ""}`}
-              >
-                <button
-                  className="service-row-header"
-                  onClick={() => toggle(i)}
-                >
-                  <div className="service-row-title">
-                    <span className="service-row-icon">{s.icon}</span>
-                    <span>{s.title}</span>
-                  </div>
-
-                  <span
-                    className={`service-row-toggle ${active === i ? "open" : ""}`}
-                  >
-                    ▼
-                  </span>
-                </button>
-
-                <div className="service-row-content">
-                  <p>{s.desc}</p>
-
-                  <ul>
-                    {s.points.map((p, idx) => (
-                      <li key={idx}>
-                        <FaCheckCircle /> {p}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              <article key={s.title} className="svc-card">
+                <span className="svc-num">{String(i + 1).padStart(2, "0")}</span>
+                <span className="svc-icon">{s.icon}</span>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+                <ul>
+                  {s.points.map((p) => (
+                    <li key={p}>
+                      <FaCheckCircle /> {p}
+                    </li>
+                  ))}
+                </ul>
+              </article>
             ))}
           </div>
         </div>
       </section>
-
-      {/* KEEP YOUR EXISTING IMAGE SECTION EXACTLY AS IS */}
-      <div className="services-image-section">
-        <div className="container image-grid">
-          <div className="image-slider slider-one">
-            <img src="/services/service-1.webp" alt="" />
-            <img src="/services/service-2.webp" alt="" />
-            <img src="/services/service-3.webp" alt="" />
-          </div>
-
-          <div className="image-slider slider-two">
-            <img src="/services/service-4.webp" alt="" />
-            <img src="/services/service-5.webp" alt="" />
-            <img src="/services/service-6.webp" alt="" />
-          </div>
-        </div>
-      </div>
     </>
   );
 }

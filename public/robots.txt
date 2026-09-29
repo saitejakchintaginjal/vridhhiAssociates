@@ -1,0 +1,10 @@
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Ensure assets are accessible (specifically for Vite/React builds)
+Allow: /projects/
+Allow: /services/
+
+# Point to your sitemap
+Sitemap: https://vridhhiassociates.com/sitemap.xml

@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const FloatingButtons = lazy(() => import("../components/FloatingButtons"));
 
@@ -12,6 +13,7 @@ const Layout = ({ children }: Props) => {
     <>
       <Navbar />
       {children}
+      <Footer />
       <FloatingButtons />
     </>
   );

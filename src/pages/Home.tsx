@@ -1,4 +1,5 @@
 import "./Home.css";
+import HeroScene from "../components/HeroScene";
 
 const Home = () => {
   return (
@@ -15,6 +16,9 @@ const Home = () => {
       />
 
       <div className="home-overlay"></div>
+
+      <div className="hero-main">
+        <HeroScene />
 
       <div className="container hero-content">
         <span className="hero-badge">Built on Trust</span>
@@ -42,12 +46,42 @@ const Home = () => {
           <a href="#projects" className="btn btn-outline-light btn-lg">
             View Projects
           </a>
+          <a
+            href="https://teal-croquembouche-8c165f.netlify.app/"
+            className="btn btn-outline-light btn-lg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Gallery
+          </a>
         </div>
 
         <div className="hero-features">
           <span>Quality Construction</span>
           <span>Certified Waterproofing</span>
           <span>On-Time Delivery</span>
+        </div>
+      </div>
+      </div>
+
+      <div className="hero-stats">
+        <div className="container hero-stats-grid">
+          <div>
+            <strong>20+</strong>
+            <span>Buildings Delivered</span>
+          </div>
+          <div>
+            <strong>100+</strong>
+            <span>Waterproofing Projects</span>
+          </div>
+          <div>
+            <strong>45+</strong>
+            <span>Renovations</span>
+          </div>
+          <div>
+            <strong>Hubli</strong>
+            <span>Based &amp; Local</span>
+          </div>
         </div>
       </div>
     </section>

@@ -38,14 +38,16 @@ const Navbar = () => {
 
         {/* Menu */}
         <div className={`nav-menu ${menuOpen ? "show" : ""}`}>
-          {["home", "about", "services", "projects", "contact"].map((item) => (
+          {["home", "about", "services", "projects", "contact", "faq"].map((item) => (
             <a
               key={item}
               href={`#${item}`}
               className="nav-link"
               onClick={handleLinkClick}
             >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
+              {item === "faq"
+                ? "FAQ"
+                : item.charAt(0).toUpperCase() + item.slice(1)}
             </a>
           ))}
 

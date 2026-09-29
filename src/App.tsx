@@ -8,6 +8,7 @@ const About = lazy(() => import("./pages/About"));
 const Services = lazy(() => import("./pages/Services"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Contact = lazy(() => import("./pages/Contact"));
+const FAQ = lazy(() => import("./pages/FAQ"));
 
 /* ---------- LOADER ---------- */
 const PageLoader = () => (
@@ -46,6 +47,10 @@ function App() {
 
           <LazySection>
             <Contact />
+          </LazySection>
+
+          <LazySection>
+            <FAQ />
           </LazySection>
         </main>
       </Suspense>

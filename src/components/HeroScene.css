@@ -1,0 +1,300 @@
+/* Decorative home-sketch scene behind the hero content */
+
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* blueprint grid slowly drifting */
+.hero-grid {
+  position: absolute;
+  inset: -60px;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: radial-gradient(
+    ellipse at 70% 60%,
+    #000 0%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(ellipse at 70% 60%, #000 0%, transparent 75%);
+  animation: gridDrift 24s linear infinite;
+}
+
+@keyframes gridDrift {
+  to {
+    transform: translate(60px, 60px);
+  }
+}
+
+.hero-house-svg {
+  position: absolute;
+  right: clamp(0px, 3vw, 56px);
+  bottom: 0;
+  width: min(62vw, 720px);
+  height: auto;
+  max-height: 92%;
+  opacity: 0.9;
+  overflow: visible;
+}
+
+/* ---------- line art ---------- */
+
+.ln {
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.ln.bold {
+  stroke: #ffb454;
+  stroke-width: 3;
+}
+
+.ln.dim {
+  stroke: rgba(255, 180, 84, 0.8);
+  stroke-width: 1.2;
+}
+
+.h-dim {
+  fill: #ffb454;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* fills */
+.h-fills {
+  opacity: 0;
+  animation: fillIn 16s ease-in-out infinite;
+}
+
+.f-wall {
+  fill: rgba(242, 246, 252, 0.16);
+}
+.f-wall2 {
+  fill: rgba(242, 246, 252, 0.1);
+}
+.f-wood {
+  fill: rgba(217, 111, 11, 0.75);
+}
+.f-glass {
+  fill: rgba(150, 200, 220, 0.18);
+}
+.f-leaf {
+  fill: rgba(96, 160, 110, 0.35);
+}
+
+.h-glow rect {
+  fill: rgba(255, 196, 110, 0.55);
+  stroke: none;
+}
+
+.h-glow {
+  opacity: 0;
+  animation: glowOn 16s ease-in-out infinite;
+}
+
+/* whole house fades in/out around the loop */
+.house {
+  animation: houseFade 16s ease-in-out infinite;
+}
+
+/* sun + clouds */
+.h-sun-core {
+  fill: rgba(255, 180, 84, 0.85);
+}
+
+.h-rays line {
+  stroke: rgba(255, 180, 84, 0.8);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.h-rays {
+  transform-box: view-box;
+  transform-origin: 540px 64px;
+  animation: spin 40s linear infinite;
+}
+
+.h-cloud path {
+  fill: rgba(255, 255, 255, 0.14);
+}
+
+.h-cloud {
+  animation: cloudDrift 55s linear infinite;
+}
+
+.h-cloud.c2 {
+  animation-duration: 80s;
+  animation-delay: -30s;
+}
+
+/* ---------- drawing sequence (16s loop, five strokes stages) ---------- */
+
+.d1 {
+  animation: draw1 16s ease-in-out infinite;
+}
+.d2 {
+  animation: draw2 16s ease-in-out infinite;
+}
+.d3 {
+  animation: draw3 16s ease-in-out infinite;
+}
+.d4 {
+  animation: draw4 16s ease-in-out infinite;
+}
+.d5 {
+  animation: draw5 16s ease-in-out infinite;
+}
+
+@keyframes draw1 {
+  0%,
+  2% {
+    stroke-dashoffset: 1;
+  }
+  14%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw2 {
+  0%,
+  14% {
+    stroke-dashoffset: 1;
+  }
+  26%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw3 {
+  0%,
+  26% {
+    stroke-dashoffset: 1;
+  }
+  36%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw4 {
+  0%,
+  36% {
+    stroke-dashoffset: 1;
+  }
+  50%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw5 {
+  0%,
+  50% {
+    stroke-dashoffset: 1;
+  }
+  62%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillIn {
+  0%,
+  62% {
+    opacity: 0;
+  }
+  74%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes glowOn {
+  0%,
+  76% {
+    opacity: 0;
+  }
+  84% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  94%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes houseFade {
+  0%,
+  92% {
+    opacity: 1;
+  }
+  99%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cloudDrift {
+  from {
+    transform: translateX(-160px);
+  }
+  to {
+    transform: translateX(560px);
+  }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 992px) {
+  .hero-house-svg {
+    width: min(90vw, 620px);
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-house-svg {
+    width: 118vw;
+    right: -16vw;
+    opacity: 0.35;
+  }
+}
+
+/* reduced motion: show the finished, coloured drawing */
+@media (prefers-reduced-motion: reduce) {
+  .hero-grid,
+  .house,
+  .h-fills,
+  .h-glow,
+  .h-rays,
+  .h-cloud,
+  .ln {
+    animation: none !important;
+  }
+
+  .ln {
+    stroke-dashoffset: 0;
+  }
+
+  .h-fills,
+  .h-glow {
+    opacity: 1;
+  }
+}
